@@ -1,0 +1,17 @@
+
+    - name: install "{{package_name_debian}}" on remote server
+      apt:
+        name: "{{package_name_debian}}"
+        state: latest
+        update_cache: yes
+
+    - name: make sure "{{service_name_debian}}" is running
+      service:
+            name: "{{service_name_debian}}"
+            state: started
+            enabled: true
+
+    - name: copy "{{build}" from control server to remote server
+      copy:
+         src: "/files/{{build}}"
+         dest: "{{dest_path}}/{{build}}"

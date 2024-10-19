@@ -1,0 +1,7 @@
+
+[Debian_servers]
+10.0.0.219 ansible_user=ubuntu
+
+[RedHat_servers]
+10.0.0.53 ansible_user=ec2-user
+

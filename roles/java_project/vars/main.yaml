@@ -1,0 +1,8 @@
+
+- name: gather os family variables
+  ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+        - '{{ansible_distribution}}.yaml'
+        - '{{ansible_os_family}}.yaml'

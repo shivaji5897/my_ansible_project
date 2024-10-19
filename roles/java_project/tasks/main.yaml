@@ -1,0 +1,7 @@
+
+- name: gather os family tasks
+  include_tasks: "{{ lookup('first_found', possible_files) }}"
+  tasks:
+    possible_files:
+      - "{{ ansible_distribution }}.yaml"
+      - "{{ ansible_os_family }}.yaml"

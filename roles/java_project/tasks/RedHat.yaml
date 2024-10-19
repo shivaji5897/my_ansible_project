@@ -1,0 +1,17 @@
+
+    - name: install "{{package_name_redhat}}" on remote server
+      yum:
+        name: "{{package_name_redhat}}"
+        state: latest
+        update_cache: yes
+
+    - name: make sure "{{service_name_redhat}}" is running
+      service:
+            name: "{{service_name_redhat}}"
+            state: started
+            enabled: true
+
+    - name: copy "{{build}}" from control server to remote server
+      copy:
+         src: "/files/{{build}}"
+         dest: "{{dest_path}}/{{build}}"
